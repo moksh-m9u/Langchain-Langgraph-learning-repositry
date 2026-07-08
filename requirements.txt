@@ -1,0 +1,16 @@
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-text-splitters
+langgraph
+pydantic
+python-dotenv
+chromadb
+duckduckgo-search
+streamlit
+unstructured
+pypdf
+ragas
+huggingface-hub
