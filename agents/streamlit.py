@@ -16,7 +16,7 @@ st.set_page_config(page_title="Research Agent", page_icon="🔎", layout="center
 MAX_CHARS_PER_PAGE = 4000
 
 
-# ---------- Agent setup (built once, cached across reruns) ----------
+# Agent setup (built once, cached across reruns) 
 @st.cache_resource(show_spinner=False)
 def build_agent():
     model = ChatGroq(

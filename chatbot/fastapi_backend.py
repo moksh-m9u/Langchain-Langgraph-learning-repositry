@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from chatbot.langgraph_workflow import chatbot
+from chatbotv2.langgraph_workflow import chatbot
 from langchain_core.messages import HumanMessage
 from datetime import datetime, timezone
 import time
