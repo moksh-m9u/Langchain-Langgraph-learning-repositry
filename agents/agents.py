@@ -40,7 +40,6 @@ def web_search(query: str) -> str:
         )
     return "\n\n".join(formatted)
 
-
 @tool
 def scrape_page(url: str) -> str:
     """Fetch and read the full text content of a specific webpage URL.

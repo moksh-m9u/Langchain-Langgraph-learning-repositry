@@ -20,10 +20,9 @@ MAX_CHARS_PER_PAGE = 4000
 @st.cache_resource(show_spinner=False)
 def build_agent():
     model = ChatGroq(
-        model="qwen/qwen3-32b",
+        model="llama-3.3-70b-versatile",
         temperature=0,
         max_tokens=None,
-        reasoning_format="parsed",
     )
 
     ddg = DuckDuckGoSearchResults(output_format="list", max_results=5)
