@@ -26,7 +26,7 @@ def web_search(query: str) -> str:
 
 
 tools = [web_search]
-tools = [serializer , ]
+
 
 # --- Agent ---
 agent = create_agent(
