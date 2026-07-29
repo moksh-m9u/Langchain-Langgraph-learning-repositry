@@ -10,3 +10,5 @@ main.json
 blog.txt
 *.db
 chatbot.db
+chatbot.db-shm
+chatbot.db-wal

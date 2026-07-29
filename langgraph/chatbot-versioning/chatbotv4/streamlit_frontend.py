@@ -3,7 +3,7 @@ from langgraph_workflow import chatbot, retrieve_all_threads
 from langchain_core.messages import HumanMessage
 import uuid
 
-# **************************************** utility functions *************************
+# utility functions 
 
 def generate_thread_id():
     thread_id = uuid.uuid4()

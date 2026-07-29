@@ -66,14 +66,26 @@ Eventually I plan to polish this into a structured learning resource for beginne
 | **Chatbot** | Basic chatbot with and without persistence (memory) | `langgraph/chatbot/` |
 | **Persistence** | Time travel, state inspection with InMemorySaver | `langgraph/persistence/` |
 
-### Chatbot Versions (Persistance , Traceability , Threading)
+### Chatbot Versions (Persistence, Traceability, Threading)
 
 | Version | Key Feature | Location |
 |---------|-------------|----------|
 | **v1** | Basic Streamlit UI with single thread | `langgraph/chatbot-versioning/chatbot/` |
 | **v2** | Multi-thread management, conversation switching | `langgraph/chatbot-versioning/chatbotv2/` |
 | **v3** | SQLite persistence via SqliteSaver | `langgraph/chatbot-versioning/chatbotv3/` |
-| **v4** | LangSmith integration (planned) | `langgraph/chatbot-versioning/chatbotv4/` |
+| **v4** | LangSmith tracing for observability | `langgraph/chatbot-versioning/chatbotv4/` |
+
+<p align="center">
+  <img src="assets/traces_langsmith.png" alt="LangSmith Traces" width="700"/>
+  <br/>
+  <em>LangSmith traces — each chat turn logged as a trace with full I/O, latency, and token usage</em>
+</p>
+
+<p align="center">
+  <img src="assets/thread_langsmith.png" alt="LangSmith Threads" width="700"/>
+  <br/>
+  <em>LangSmith threads view — conversations grouped by thread_id for end-to-end analysis</em>
+</p>
 
 ### Agents
 
