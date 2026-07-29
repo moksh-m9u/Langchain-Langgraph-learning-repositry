@@ -1,5 +1,5 @@
-from rag.document_loading.transcript import transcript
-from rag.text_splitter.chunking import splitting
+from langchain.rag.document_loading.transcript import transcript
+from langchain.rag.text_splitter.chunking import splitting
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv

@@ -18,7 +18,7 @@ prompt = PromptTemplate(
 )
 
 parser = StrOutputParser()
-loader = PyPDFLoader("datasheet.pdf")
+loader = PyPDFLoader("data/datasheet.pdf")
 
 docs = loader.load()
 print(docs[2].page_content)

@@ -7,9 +7,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-import os
-
-os.environ["UNSTRUCTURED_API_KEY"] = "LEqL6Q2ylCv0S1fHlM1KF25TlJ1lFO"
 
 load_dotenv()
 
@@ -32,7 +29,7 @@ loader = WebBaseLoader(url)
 docs = loader.load()
 
 # PDF loader -- CORRECTED
-pdf_loader = UnstructuredPDFLoader("datasheet.pdf")  # <-- Use this for PDFs
+pdf_loader = UnstructuredPDFLoader("data/datasheet.pdf")  # <-- Use this for PDFs
 datasheet = pdf_loader.load()
 
 print(datasheet)

@@ -122,4 +122,4 @@ small_dataset = Dataset.from_dict({
 })
 score = evaluate(small_dataset,metrics=[faithfulness,answer_correctness],llm=evaluator_llm,embeddings=ragas_embeddings)
 df = score.to_pandas()
-df.to_csv('score.csv',index=False)
+df.to_csv('eval-scores/score.csv',index=False)

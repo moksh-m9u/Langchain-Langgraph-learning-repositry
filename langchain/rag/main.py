@@ -3,10 +3,10 @@ from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain_community.vectorstores import Chroma
-from rag.document_loading.transcript import transcript
+from langchain.rag.document_loading.transcript import transcript
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
-from rag.text_splitter.chunking import splitting
+from langchain.rag.text_splitter.chunking import splitting
 import json
 
 load_dotenv()
@@ -39,7 +39,7 @@ model = ChatGroq(
 parser = StrOutputParser()
 
 docs = transcript("https://youtu.be/HTUh0OO6Kmo")
-with open("transcript.json", "w", encoding="utf-8") as f:
+with open("data/transcript.json", "w", encoding="utf-8") as f:
     json.dump(
         [{"page_content": doc.page_content, "metadata": doc.metadata} for doc in docs],
         f,

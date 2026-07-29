@@ -35,7 +35,7 @@ I plan to keep learning new patterns and eventually polish this into a structure
 
 ## Status
 
-This repository is a **living document** of my learning journey. It gets updated as I learn new patterns and techniques. The code works but reflects the iterative nature of self-study  some files are exploratory, some are incomplete, and all of them taught me something.
+This repository is a **living document** of my learning journey. It gets updated as I learn new patterns and techniques. The code works but reflects the iterative nature of self-study — some files are exploratory, some are incomplete, and all of them taught me something.
 
 Eventually I plan to polish this into a structured learning resource for beginners.
 
@@ -45,41 +45,53 @@ Eventually I plan to polish this into a structured learning resource for beginne
 
 ### LangChain Fundamentals
 
-| Topic | What it demonstrates | Files |
-|-------|---------------------|-------|
-| **Chains** | Parallel execution — two LLM calls in parallel (notes + quiz), then merging | `chains/` |
-| **Output Parsers** | Structured output via Pydantic, JSON parsing, sequential Q&A, async streaming | `output_parsers/` |
-| **Runnables** | RunnableSequence, RunnableParallel, RunnableLambda — composing chains with custom functions | `runnable/` |
-| **Document Loaders** | Loading PDFs (PyPDFLoader) and web pages (WebBaseLoader) into Document objects | `document_loaders/` |
-| **Text Splitters** | RecursiveCharacterTextSplitter — chunking strategies for long documents | `text_splitter/` |
-| **Tools** | Custom @tool decorator + bind_tools() | `tools/` |
+| Topic | What it demonstrates | Location |
+|-------|---------------------|----------|
+| **Chains** | Parallel execution — two LLM calls in parallel (notes + quiz), then merging | `langchain/chains/` |
+| **Output Parsers** | Structured output via Pydantic, JSON parsing, sequential Q&A, async streaming | `langchain/output_parsers/` |
+| **Runnables** | RunnableSequence, RunnableParallel, RunnableLambda — composing chains with custom functions | `langchain/runnable/` |
+| **Document Loaders** | Loading PDFs (PyPDFLoader) and web pages (WebBaseLoader) into Document objects | `langchain/document_loaders/` |
+| **Text Splitters** | RecursiveCharacterTextSplitter — chunking strategies for long documents | `langchain/text_splitter/` |
+| **Tools** | Custom @tool decorator + bind_tools() | `langchain/tools/` |
+| **Practice Exercises** | Extra sequential, parallel, and structured output demos | `langchain/practise/` |
 
 ### LangGraph State Machines
 
-| Pattern | What it demonstrates | Files |
-|---------|---------------------|-------|
+| Pattern | What it demonstrates | Location |
+|---------|---------------------|----------|
 | **Sequential** | Prompt chaining, sequential LLM calls in a graph | `langgraph/fundamentals/Sequentials/` |
 | **Parallel** | Essay evaluation, cricket performance — branching and joining nodes | `langgraph/fundamentals/Parallels/` |
 | **Conditional** | Code review routing, customer support branching, quadratic equation solver | `langgraph/fundamentals/conditionals/` |
 | **Iterative** | X/Twitter post agent — loops within a graph | `langgraph/fundamentals/Iteratives/` |
 | **Chatbot** | Basic chatbot with and without persistence (memory) | `langgraph/chatbot/` |
+| **Persistence** | Time travel, state inspection with InMemorySaver | `langgraph/persistence/` |
+
+### Chatbot Versions (Persistance , Traceability , Threading)
+
+| Version | Key Feature | Location |
+|---------|-------------|----------|
+| **v1** | Basic Streamlit UI with single thread | `langgraph/chatbot-versioning/chatbot/` |
+| **v2** | Multi-thread management, conversation switching | `langgraph/chatbot-versioning/chatbotv2/` |
+| **v3** | SQLite persistence via SqliteSaver | `langgraph/chatbot-versioning/chatbotv3/` |
+| **v4** | LangSmith integration (planned) | `langgraph/chatbot-versioning/chatbotv4/` |
 
 ### Agents
 
 - Research agents with tool-calling: web search + page scraping + source citation
 - Streamlit interactive UI wrapping the research agent
 - Demonstrates create_agent(), tool binding, and streaming
+- Located in `langchain/agents/`
 
 ### RAG Pipeline (Retrieval-Augmented Generation)
 
-| Stage | What it does | Files |
-|-------|-------------|-------|
-| **Document Loading** | Loads YouTube transcripts via YoutubeLoader | `rag/document_loading/` |
-| **Text Splitting** | Chunks documents (1000 chars, 200 overlap) | `rag/text_splitter/` |
-| **Embedding** | Dense vectors via HuggingFace (all-MiniLM-L6-v2 / bge-m3) | `rag/embedding/` |
-| **Document Ingestion** | Load → chunk → embed → store in Chroma | `rag/document_ingestion/` |
-| **Retrieval & Generation** | Top-k retrieval + Groq LLM for answers | `rag/main.py` |
-| **Evaluation** | RAGAS scoring (faithfulness, answer correctness) | `rag/scoring.py` |
+| Stage | What it does | Location |
+|-------|-------------|----------|
+| **Document Loading** | Loads YouTube transcripts via YoutubeLoader | `langchain/rag/document_loading/` |
+| **Text Splitting** | Chunks documents (1000 chars, 200 overlap) | `langchain/rag/text_splitter/` |
+| **Embedding** | Dense vectors via HuggingFace (all-MiniLM-L6-v2 / bge-m3) | `langchain/rag/embedding/` |
+| **Document Ingestion** | Load → chunk → embed → store in Chroma | `langchain/rag/document_ingestion/` |
+| **Retrieval & Generation** | Top-k retrieval + Groq LLM for answers | `langchain/rag/main.py` |
+| **Evaluation** | RAGAS scoring (faithfulness, answer correctness) | `langchain/rag/scoring.py` |
 
 <br/>
 
@@ -87,37 +99,71 @@ Eventually I plan to polish this into a structured learning resource for beginne
 
 ```
 langgraph_practise/
-├── .env.example            # Template for required env vars
-├── agents/                 # Agent implementations
-│   ├── agents.py           #   Research agent (web search + scrape)
-│   ├── intelligence.py     #   Simple research agent
-│   └── streamlit.py        #   Streamlit chat UI
-├── chains/                 # Chain patterns
-│   ├── parallels.py        #   Parallel notes + quiz generation
-│   └── web_loader.py       #   Web document loading demo
-├── document_loaders/       # PDF & web document loading
-├── langgraph/              # LangGraph notebooks
-│   ├── chatbot/            #   Basic chatbot notebooks
-│   └── fundamentals/
-│       ├── Sequentials/    #   3 notebooks
-│       ├── Parallels/      #   2 notebooks
-│       ├── conditionals/   #   3 notebooks
-│       └── Iteratives/     #   1 notebook
-├── notebooks/              # Miscellaneous notebooks
-├── output_parsers/         # Structured output, JSON, streaming
-├── practise/               # Extra practice exercises
-├── rag/                    # Full RAG pipeline
-│   ├── document_loading/
-│   ├── text_splitter/
-│   ├── embedding/
-│   ├── document_ingestion/
-│   ├── main.py             # Pipeline orchestrator
-│   └── scoring.py          # RAGAS evaluation
-├── requirements.txt        # Python dependencies
-├── runnable/               # RunnableSequence, Parallel, Lambda
-├── text_splitter/          # Chunking demos
-├── tools/                  # Custom tool definitions
-└── main.py                 # Entry point — structured output demo
+├── .env.example                         # Template for required env vars
+├── requirements.txt                     # Python dependencies
+├── data/                                # Data files (PDFs, transcripts, blogs)
+│   ├── datasheet.pdf
+│   ├── dl-curriculum.pdf
+│   ├── blog.txt
+│   └── transcript.json
+├── eval-scores/                         # RAGAS evaluation outputs
+│   ├── score.csv
+│   ├── score2.csv
+│   └── score3.csv
+│
+├── langchain/                           # LangChain fundamentals & patterns
+│   ├── main.py                          # Entry point — structured output demo
+│   ├── agents/                          # Tool-calling agents + Streamlit UI
+│   │   ├── agents.py
+│   │   ├── intelligence.py
+│   │   └── streamlit.py
+│   ├── chains/                          # Chain patterns
+│   │   ├── parallels.py
+│   │   └── web_loader.py
+│   ├── document_loaders/                # PDF & web document loading
+│   │   ├── text_loaders.py
+│   │   └── web_loader.py
+│   ├── output_parsers/                  # Structured output, JSON, streaming
+│   │   ├── basic.py
+│   │   ├── basic2.py
+│   │   └── json_parser.py
+│   ├── practise/                        # Extra practice exercises
+│   │   ├── main.py
+│   │   ├── parallel.py
+│   │   ├── sequential.py
+│   │   └── structured_output_parser.py
+│   ├── rag/                             # Full RAG pipeline
+│   │   ├── main.py
+│   │   ├── scoring.py
+│   │   ├── document_loading/
+│   │   ├── document_ingestion/
+│   │   ├── embedding/
+│   │   └── text_splitter/
+│   ├── runnable/                        # RunnableSequence, Parallel, Lambda
+│   │   ├── lambda_runnable.py
+│   │   └── main.py
+│   ├── text_splitter/                   # Chunking demos
+│   │   └── practise.py
+│   └── tools/                           # Custom tool definitions
+│       └── practise.py
+│
+└── langgraph/                           # LangGraph notebooks & chatbot apps
+    ├── requirements.txt
+    ├── chatbot/                         # Basic chatbot notebooks
+    │   ├── basic_chatbot.ipynb
+    │   └── basic_chatbot_persistence.ipynb
+    ├── chatbot-versioning/              # v1-v4 chatbot versions with UIs
+    │   ├── chatbot/                     # v1 — basic Streamlit UI
+    │   ├── chatbotv2/                   # v2 — multi-thread management
+    │   ├── chatbotv3/                   # v3 — SQLite persistence
+    │   └── chatbotv4/                   # v4 — LangSmith (planned)
+    ├── fundamentals/
+    │   ├── Sequentials/                 # 3 notebooks
+    │   ├── Parallels/                   # 2 notebooks
+    │   ├── conditionals/                # 3 notebooks
+    │   └── Iteratives/                  # 1 notebook
+    └── persistence/
+        └── chatbot_persistance.ipynb
 ```
 
 <br/>
@@ -159,11 +205,29 @@ UNSTRUCTURED_API_KEY=your_unstructured_key_here
 
 ### Running Things
 
+All commands run from the project root.
+
 ```bash
-python main.py                    # Structured output demo
-python rag/main.py                # RAG pipeline
-python rag/scoring.py             # RAGAS evaluation
-streamlit run agents/streamlit.py # Agent UI
+# LangChain demos
+python langchain/main.py                         # Structured output demo
+
+# LangChain scripts with internal imports (use -m from root)
+python -m langchain.rag.main                     # RAG pipeline
+python -m langchain.rag.scoring                  # RAGAS evaluation
+
+# Streamlit UI
+streamlit run langchain/agents/streamlit.py      # Research agent UI
+
+# Chatbot UIs (use -m from chatbot-versioning/)
+cd langgraph/chatbot-versioning && streamlit run chatbot/streamlit_frontend.py    # v1
+cd langgraph/chatbot-versioning && streamlit run chatbotv2/streamlit_frontend.py  # v2
+cd langgraph/chatbot-versioning && streamlit run chatbotv3/streamlit_frontend.py  # v3
+
+# Chatbot FastAPI backend
+cd langgraph/chatbot-versioning && uvicorn chatbot.fastapi_backend:app --reload
+
+# Jupyter notebooks
+jupyter notebook langgraph/chatbot/basic_chatbot.ipynb
 ```
 
 <br/>
@@ -191,7 +255,7 @@ streamlit run agents/streamlit.py # Agent UI
 | **RAG** | Loading → chunking → embedding → ingestion → retrieval → evaluation |
 | **Vector Store** | Chroma |
 | **Evaluation** | RAGAS |
-| **UI** | Streamlit |
+| **UI** | Streamlit, FastAPI |
 | **Parsing** | Pydantic, JSON output parsers |
 
 <br/>
