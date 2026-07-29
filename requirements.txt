@@ -14,3 +14,8 @@ unstructured
 pypdf
 ragas
 huggingface-hub
+langgraph-checkpoint-sqlite
+
+dotenv
+ddgs
+langgraph-checkpoint-sqlite

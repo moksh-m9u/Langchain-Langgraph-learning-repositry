@@ -5,3 +5,4 @@ langchain-groq
 dotenv
 ddgs
 langchain-community
+langgraph-checkpoint-sqlite

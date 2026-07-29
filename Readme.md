@@ -74,6 +74,7 @@ Eventually I plan to polish this into a structured learning resource for beginne
 | **v2** | Multi-thread management, conversation switching | `langgraph/chatbot-versioning/chatbotv2/` |
 | **v3** | SQLite persistence via SqliteSaver | `langgraph/chatbot-versioning/chatbotv3/` |
 | **v4** | LangSmith tracing for observability | `langgraph/chatbot-versioning/chatbotv4/` |
+| **v5** | Tool integration (search, calculator, stock price) with tool result display | `langgraph/chatbot-versioning/chatbotv5/` |
 
 <p align="center">
   <img src="assets/traces_langsmith.png" alt="LangSmith Traces" width="700"/>
